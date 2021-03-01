@@ -11,8 +11,19 @@ import { Grid, Slider } from "@material-ui/core";
 import VolumeDownIcon from "@material-ui/icons/VolumeDown";
 
 function Footer() {
+  const player = document.getElementById("audioPlayer");
+
+  const mediaPlay = () => {
+    if (!player.paused) {
+      player.play();
+    } else {
+      player.pause();
+    }
+  };
+
   return (
     <div className='footer'>
+      <audio id='audioPlayer'></audio>
       <div className='footer__left'>
         <img
           src='https://static.billboard.com/files/media/Metallica-Master-of-Puppets-album-covers-billboard-1000x1000-compressed.jpg'
@@ -20,19 +31,22 @@ function Footer() {
           className='footer_albumPhoto'
         />
         <div className='footer__songInfo'>
-          <h3>Hey</h3>
-          <p>Pixies</p>
+          <h3>For Whom The Bell Tolls</h3>
+          <p>Metallica</p>
         </div>
       </div>
 
       <div className='footer__center'>
         <ShuffleIcon className='footer__green' />
         <SkipPreviousIcon className='footer__icon' />
-        <PlayCircleOutlineIcon fontSize='large' className='footer__icon' />
+        <PlayCircleOutlineIcon
+          fontSize='large'
+          className='footer__icon'
+          onClick={mediaPlay}
+        />
         <SkipNextIcon className='footer__icon' />
         <RepeatIcon className='footer__green' />
       </div>
-
       <div className='footer__right'>
         <Grid container spacing={2}>
           <Grid item>
