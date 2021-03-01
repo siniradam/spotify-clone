@@ -1,0 +1,2 @@
+# Spotify API Cleint ID
+130e7554293a437b9b07a2d20bb89e43
